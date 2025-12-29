@@ -183,5 +183,3 @@ def apply_replacements_in_directory(**kwargs):
     finalizar_reporte_html(ruta_html)
     print(f"✨ Reporte finalizado en: {ruta_html}")
 
-    finalizar_reporte_html(ruta_html)
-    print(f"✨ Reporte finalizado en: {ruta_html}")
