@@ -1,0 +1,169 @@
+{
+  "Scan Options": {
+    "Excluded Directories": [
+      "node_modules",
+      ".git",
+      "target",
+      "build",
+      "migration_reports",
+      "scripts",
+      "scripts_layer",
+      "script_layer"
+    ],
+    "Excluded Files": [
+      ".DS_Store",
+      "search-config.json",
+      "secrets.properties"
+    ],
+    "Search_files": [
+      "persistence.xml",
+      "DataSource.properties",
+      "*.java",
+      "*.sql",
+      "pom.xml"
+    ]
+  },
+
+  "File Specific Rules": {
+    "pom.xml": [
+      {
+        "ID": "Pom_GroupID",
+        "Description": "Sustitución de GroupID del driver Oracle por PostgreSQL",
+        "Oldval": "<groupId>\\s*com\\.oracle\\.database\\.jdbc\\s*</groupId>",
+        "Newval": "<groupId>org.postgresql</groupId>"
+      },
+      {
+        "ID": "Pom_VersionAfterArtifact",
+        "Description": "Reemplazar <version>...</version> que sigue a artifactId ojdbc* por 42.7.3",
+        "Oldval": "(<artifactId>\\s*ojdbc[0-9]*\\s*</artifactId>\\s*<version>)(.*?)(</version>)",
+        "Newval": "\\1 42.7.3\\3"
+      },
+      {
+        "ID": "Pom_ArtifactID",
+        "Description": "Sustitución de ojdbc* por postgresql",
+        "Oldval": "<artifactId>\\s*ojdbc[0-9]*\\s*</artifactId>",
+        "Newval": "<artifactId>postgresql</artifactId>"
+      },
+      {
+        "ID": "Pom_PostgresVersion",
+        "Description": "Reemplazar uso de ${ojdbc.version} por versión de Postgres",
+        "Oldval": "<version>\\s*\\$\\{ojdbc\\.version\\}\\s*</version>",
+        "Newval": "<version>42.7.3</version>"
+      },
+      {
+        "ID": "Pom_Dialect",
+        "Description": "Sustitución de Dialecto de Hibernate Oracle → PostgreSQL",
+        "Oldval": "org\\.hibernate\\.dialect\\.Oracle[^\\s<>]*Dialect",
+        "Newval": "org.hibernate.dialect.PostgreSQLDialect"
+      },
+      {
+        "ID": "Pom_PostgresVersionTag",
+        "Description": "Reemplazar <version>${ojdbc.version}</version> por versión concreta de Postgres",
+        "Oldval": "<version>\\s*\\$\\{ojdbc\\.version\\}\\s*</version>",
+        "Newval": "<version>42.7.3</version>"
+      },
+      {
+        "ID": "Pom_OjdbcPropertyToPostgresProperty",
+        "Description": "Renombrar propiedad ojdbc.version a postgresql.version y fijar valor",
+        "Oldval": "<ojdbc\\.version>\\s*[^<]*\\s*</ojdbc\\.version>",
+        "Newval": "<postgresql.version>42.7.3</postgresql.version>"
+      },
+      {
+        "ID": "Pom_ReplaceAnyOjdbcPropertyRef",
+        "Description": "Reemplazar referencias ${ojdbc.version} por ${postgresql.version} o por valor directo",
+        "Oldval": "\\$\\{ojdbc\\.version\\}",
+        "Newval": "42.7.3"
+      }
+    ],
+
+    "persistence.xml": [
+      {
+        "ID": "Persistence_Driver",
+        "Description": "Cambio de driver JDBC Oracle → PostgreSQL",
+        "Oldval": "oracle\\.jdbc\\.OracleDriver",
+        "Newval": "org.postgresql.Driver"
+      },
+      {
+        "ID": "Persistence_Dialect",
+        "Description": "Cambio de dialecto Hibernate Oracle → PostgreSQL",
+        "Oldval": "org\\.hibernate\\.dialect\\.Oracle[^\\s<>]*Dialect",
+        "Newval": "org.hibernate.dialect.PostgreSQLDialect"
+      },
+      {
+        "ID": "Persistence_JtaDatasource",
+        "Description": "Ajuste de jta-data-source si contiene java:/oracle_... (ejemplo)",
+        "Oldval": "java:/[a-zA-Z0-9_\\-]*oracle[a-zA-Z0-9_\\-]*",
+        "Newval": "java:/postgres_default_jdbc_rw"
+      }
+    ],
+
+    "DataSource.properties": [
+      {
+        "ID": "Datasource_URL",
+        "Description": "Cambio de URL JDBC Oracle → PostgreSQL",
+        "Oldval": "jdbc:oracle:thin:@[^\\s\\n\\r]+",
+        "Newval": "jdbc:postgresql://localhost:5432/tu_basedatos"
+      },
+      {
+        "ID": "Datasource_Driver",
+        "Description": "Cambio de driver JDBC Oracle → PostgreSQL",
+        "Oldval": "oracle\\.jdbc\\.OracleDriver",
+        "Newval": "org.postgresql.Driver"
+      }
+    ],
+
+    "*.java": [
+      {
+        "ID": "Java_ImportDriver",
+        "Description": "Cambio de import Oracle JDBC → PostgreSQL (si aplica)",
+        "Oldval": "import\\s+oracle\\.jdbc\\.[^;\\n\\r]+;",
+        "Newval": "import org.postgresql.Driver;"
+      },
+      {
+        "ID": "Java_Sysdate",
+        "Description": "Reemplazo de uso de SYSDATE en SQL embebido por CURRENT_TIMESTAMP",
+        "Oldval": "\\bSYSDATE\\b",
+        "Newval": "CURRENT_TIMESTAMP"
+      }
+    ],
+
+    "*.sql": [
+      {
+        "ID": "SQL_Number",
+        "Description": "NUMBER(p,s) → NUMERIC(p,s) y NUMBER → BIGINT (fallback)",
+        "Oldval": "\\bNUMBER\\s*\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)",
+        "Newval": "NUMERIC($1,$2)"
+      },
+      {
+        "ID": "SQL_NumberSimple",
+        "Description": "NUMBER sin precisión → BIGINT (si aplica)",
+        "Oldval": "\\bNUMBER\\b",
+        "Newval": "BIGINT"
+      },
+      {
+        "ID": "SQL_Varchar2",
+        "Description": "VARCHAR2 → VARCHAR",
+        "Oldval": "\\bVARCHAR2\\b",
+        "Newval": "VARCHAR"
+      },
+      {
+        "ID": "SQL_Date",
+        "Description": "DATE → TIMESTAMP",
+        "Oldval": "\\bDATE\\b",
+        "Newval": "TIMESTAMP"
+      },
+      {
+        "ID": "SQL_Sysdate",
+        "Description": "SYSDATE → CURRENT_TIMESTAMP",
+        "Oldval": "\\bSYSDATE\\b",
+        "Newval": "CURRENT_TIMESTAMP"
+      },
+      {
+        "ID": "SQL_SequenceNextVal",
+        "Description": "sequence.NEXTVAL → nextval('sequence') (ajuste manual recomendado)",
+        "Oldval": "([a-zA-Z0-9_]+)\\.NEXTVAL",
+        "Newval": "nextval('$1')"
+      }
+    ]
+  }
+}

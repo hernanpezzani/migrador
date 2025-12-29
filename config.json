@@ -1,0 +1,110 @@
+{
+  "Scan Options": {
+    "Excluded Directories": [
+      "node_modules", ".git", "target", "build", "migration_reports",
+      "scripts", "scripts_layer", "script_layer", "__pycache__"
+    ],
+    "Excluded Files": [
+      ".DS_Store", "search-config.json", "secrets.properties", "*.log"
+    ],
+    "Search_files": [
+      "persistence.xml", "DataSource.properties", "*.java", "*.sql", "pom.xml"
+    ]
+  },
+  "XML Migration Rules": {
+    "pom.xml": [
+      {
+        "ID": "Pom_Dependency_Universal",
+        "Description": "Migración universal de dependencia Oracle (ojdbc*) a PostgreSQL",
+        "Target_Pattern": "ojdbc*",
+        "New_Block": {
+          "groupId": "org.postgresql",
+          "artifactId": "postgresql",
+          "version": "42.7.3"
+        }
+      }
+    ]
+  },
+  "Regex Migration Rules": {
+    "persistence.xml": [
+      {
+        "ID": "Persistence_Driver",
+        "Description": "Cambio de driver JDBC Oracle → PostgreSQL",
+        "Oldval": "oracle\\.jdbc\\.OracleDriver",
+        "Newval": "org.postgresql.Driver"
+      },
+      {
+        "ID": "Persistence_Dialect",
+        "Description": "Cambio de dialecto Hibernate",
+        "Oldval": "org\\.hibernate\\.dialect\\.Oracle[^\\s<>]*Dialect",
+        "Newval": "org.hibernate.dialect.PostgreSQLDialect"
+      }
+    ],
+    "DataSource.properties": [
+      {
+        "ID": "Datasource_URL",
+        "Description": "Cambio de URL JDBC",
+        "Oldval": "jdbc:oracle:thin:@[^\\s\\n\\r]+",
+        "Newval": "jdbc:postgresql://localhost:5432/tu_basedatos"
+      },
+      {
+        "ID": "Datasource_Driver",
+        "Description": "Cambio de driver Propiedades",
+        "Oldval": "oracle\\.jdbc\\.OracleDriver",
+        "Newval": "org.postgresql.Driver"
+      }
+    ],
+    "*.java": [
+        {
+            "ID": "Java_Import_Driver",
+            "Description": "Driver de PostgreSQL",
+            "Oldval": "import oracle\\.jdbc\\.driver\\.OracleDriver;",
+            "Newval": "import org.postgresql.Driver;"
+        },
+        {
+            "ID": "Java_Import_Standard_Connection",
+            "Description": "Usar interfaz Connection estándar",
+            "Oldval": "import oracle\\.jdbc\\.OracleConnection;",
+            "Newval": "import java.sql.Connection;"
+        },
+        {
+            "ID": "Java_Import_Standard_Types",
+            "Description": "Usar Types estándar de SQL",
+            "Oldval": "import oracle\\.jdbc\\.OracleTypes?;",
+            "Newval": "import java.sql.Types;"
+        },
+        {
+            "ID": "Java_Import_Standard_DataSource",
+            "Description": "Usar DataSource estándar",
+            "Oldval": "import oracle\\.jdbc\\.pool\\.OracleDataSource;",
+            "Newval": "import javax.sql.DataSource;"
+        },
+        {
+            "ID": "Java_Remove_Internal",
+            "Description": "Comentar clases internas de Oracle sin equivalente",
+            "Oldval": "import oracle\\.jdbc\\.internal\\.(.+);",
+            "Newval": "// TODO: Revisar clase interna de Oracle: $1"
+        }
+    ],
+    "*.sql": [
+        {
+            "ID": "SQL_Varchar2",
+            "Description": "Varchar2 a VARCHAR",
+            "Oldval": "\\bVARCHAR2\\b",
+            "Newval": "VARCHAR"
+        },
+        {
+            "ID": "SQL_Number",
+            "Description": "NUMBER a NUMERIC",
+            "Oldval": "\\bNUMBER\\b",
+            "Newval": "NUMERIC"
+        },
+        {
+            "ID": "SQL_Sysdate",
+            "Description": "SYSDATE a CURRENT_TIMESTAMP",
+            "Oldval": "\\bSYSDATE\\b",
+            "Newval": "CURRENT_TIMESTAMP"
+        }
+    ]
+  }
+}

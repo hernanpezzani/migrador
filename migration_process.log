@@ -1,0 +1,208 @@
+2025-12-24 00:07:37,725 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:07:37,725 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:07:37,725 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:07:37,725 [INFO]    🛡️ Backup: SI
+2025-12-24 00:07:37,725 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:07:37,725 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:07:37,740 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:07:37,740 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:07:37,740 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:07:37,740 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:07:37,740 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:07:37,756 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:07:37,756 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:07:37,756 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:07:37,756 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:07:37,756 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:07:37,756 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:07:37,756 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:07:37,756 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:09:27,439 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:09:27,439 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:09:27,439 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:09:27,439 [INFO]    🛡️ Backup: SI
+2025-12-24 00:09:27,439 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:09:27,449 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:09:27,451 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:09:27,451 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:09:27,453 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:09:27,453 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:09:27,453 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:09:27,459 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:09:27,459 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:09:27,459 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:09:27,461 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:09:27,461 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:09:27,463 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:09:27,463 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:09:27,463 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:12:50,116 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:12:50,116 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:12:50,116 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:12:50,116 [INFO]    🛡️ Backup: SI
+2025-12-24 00:12:50,116 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:12:50,116 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:12:50,116 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:12:50,116 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:12:50,116 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:12:50,116 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:12:50,132 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:12:50,136 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:12:50,136 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:12:50,136 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:12:50,136 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:12:50,136 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:12:50,136 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:12:50,136 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:12:50,136 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:14:07,137 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:14:07,137 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:14:07,137 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:14:07,137 [INFO]    🛡️ Backup: SI
+2025-12-24 00:14:07,137 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:14:07,137 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:14:07,137 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:14:07,137 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:14:07,137 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:14:07,137 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:14:07,137 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:14:07,149 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:14:07,149 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:14:07,149 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:14:07,149 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:14:07,149 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:14:07,149 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:14:07,149 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:14:07,149 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:15:12,680 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:15:12,680 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:15:12,680 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:15:12,680 [INFO]    🛡️ Backup: SI
+2025-12-24 00:15:12,680 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:15:12,696 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:15:12,696 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:15:12,698 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:15:12,699 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:15:12,699 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:15:12,699 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:15:12,704 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:15:12,704 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:15:12,706 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:15:12,706 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:15:12,706 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:15:12,706 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:15:12,706 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:15:12,706 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:16:06,507 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:16:06,507 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:16:06,507 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:16:06,507 [INFO]    🛡️ Backup: SI
+2025-12-24 00:16:06,507 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:16:06,523 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:16:06,524 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:16:06,524 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:16:06,524 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:16:06,524 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:16:06,524 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:16:06,524 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:16:06,524 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:16:06,524 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:18:04,396 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:18:04,396 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:18:04,396 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:18:04,396 [INFO]    🛡️ Backup: SI
+2025-12-24 00:18:04,396 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:18:04,396 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:18:04,396 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:18:04,396 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:18:04,396 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:18:04,396 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:18:04,406 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:18:04,406 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:18:04,406 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:18:04,406 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:18:04,406 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:18:04,406 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 0.
+2025-12-24 00:18:55,931 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:18:55,931 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:18:55,931 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:18:55,931 [INFO]    🛡️ Backup: SI
+2025-12-24 00:18:55,931 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:18:55,931 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:18:55,931 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:18:55,931 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:18:55,931 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:18:55,931 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:18:55,931 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:18:55,941 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:18:55,943 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:18:55,943 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:18:55,943 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:18:55,943 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:18:55,943 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:18:55,947 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:18:55,947 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.
+2025-12-24 00:20:01,497 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:20:01,497 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:20:01,497 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:20:01,497 [INFO]    🛡️ Backup: SI
+2025-12-24 00:20:01,497 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:20:01,497 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:20:01,497 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:20:01,497 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:20:01,497 [ERROR] ❌ Error aplicando reemplazo Pom_VersionAfterArtifact en pom.xml: missing >, unterminated name at position 3
+2025-12-24 00:20:01,497 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:20:01,497 [CRITICAL] ❌ Error fatal durante la ejecución: name 'clean_new_val' is not defined
+Traceback (most recent call last):
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\main.py", line 57, in main
+    engine.run(
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\migrator_core.py", line 212, in run
+    if self._process_file(path, rules, reporter):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\migrator_core.py", line 282, in _process_file
+    "after": "See file" if len(clean_new_val) > 100 else clean_new_val, # Simplificación para reporte
+                               ^^^^^^^^^^^^^
+NameError: name 'clean_new_val' is not defined
+2025-12-24 00:20:45,482 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:20:45,482 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:20:45,482 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:20:45,482 [INFO]    🛡️ Backup: SI
+2025-12-24 00:20:45,482 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:20:45,482 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:20:45,482 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:20:45,482 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:20:45,482 [CRITICAL] ❌ Error fatal durante la ejecución: name 'clean_new_val' is not defined
+Traceback (most recent call last):
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\main.py", line 57, in main
+    engine.run(
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\migrator_core.py", line 212, in run
+    if self._process_file(path, rules, reporter):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hernan\git\Github\migrador\ora2pg\migrator_core.py", line 282, in _process_file
+    "after": "See file" if len(clean_new_val) > 100 else clean_new_val, # Simplificación para reporte
+                               ^^^^^^^^^^^^^
+NameError: name 'clean_new_val' is not defined
+2025-12-24 00:21:17,146 [INFO] 🔧 Inicializando motor de migración...
+2025-12-24 00:21:17,146 [INFO]    📂 Base: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:21:17,146 [INFO]    ⚙️ Config: config.json
+2025-12-24 00:21:17,146 [INFO]    🛡️ Backup: SI
+2025-12-24 00:21:17,146 [INFO]    🧪 Dry-Run: True
+2025-12-24 00:21:17,146 [INFO] 🔐 Dry-run: Backup omitido.
+2025-12-24 00:21:17,146 [INFO] 🚀 Iniciando escaneo en: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en pom.xml - Regla: Pom_VersionAfterArtifact
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en pom.xml - Regla: Pom_GroupID
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en pom.xml - Regla: Pom_ArtifactID
+2025-12-24 00:21:17,146 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en pom.xml
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java - Regla: Java_ImportDriver
+2025-12-24 00:21:17,146 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleConfig.java
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_ImportDriver
+2025-12-24 00:21:17,146 [INFO] 🔎 Match en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java - Regla: Java_Sysdate
+2025-12-24 00:21:17,146 [INFO] ✋ Dry-run: Cambio detectado pero NO aplicado en src\main\java\com\example\customers\infrastructure\oracle\OracleCustomerRepository.java
+2025-12-24 00:21:17,146 [INFO] 📄 Reporte HTML generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.html
+2025-12-24 00:21:17,146 [INFO] 📊 Reporte CSV generado: C:\Users\hernan\GIT\Github\migrador\test\hex-oracle-app\migration_report.csv
+2025-12-24 00:21:17,146 [INFO] 🏁 Finalizado. Archivos escaneados: 10. Archivos con cambios detectados: 3.

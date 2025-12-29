@@ -1,0 +1,183 @@
+{
+  "XML Migration Rules": {
+    "pom.xml": [
+      {
+        "ID": "Pom_Dependency_Oracle_To_Postgres",
+        "Description": "Reemplaza cualquier driver Oracle (ojdbc*) por el driver de PostgreSQL",
+        "Target_Pattern": "ojdbc*",
+        "New_Block": {
+          "groupId": "org.postgresql",
+          "artifactId": "postgresql",
+          "version": "42.7.3"
+        }
+      }
+    ],
+
+    "persistence.xml": [
+      {
+        "ID": "Persistence_Hibernate_Dialect",
+        "Description": "Cambia el dialecto de Hibernate de cualquier versión Oracle a PostgreSQL",
+        "Target_Pattern": "org\\.hibernate\\.dialect\\.Oracle(.*)Dialect",
+        "New_Block": {
+          "property_name": "hibernate.dialect",
+          "value": "org.hibernate.dialect.PostgreSQLDialect"
+        }
+      },
+      {
+        "ID": "Persistence_JDBC_Driver",
+        "Description": "Cambia la propiedad JDBC driver si está definida explícitamente (opcional)",
+        "Target_Pattern": "oracle\\.jdbc(\\..*)?OracleDriver",
+        "New_Block": {
+          "property_name": "javax.persistence.jdbc.driver",
+          "value": "org.postgresql.Driver"
+        }
+      },
+      {
+        "ID": "Persistence_JDBC_URL",
+        "Description": "Cambia la URL JDBC en persistence.xml",
+        "Target_Pattern": "jdbc:oracle(.*)",
+        "New_Block": {
+          "property_name": "javax.persistence.jdbc.url",
+          "value": "jdbc:postgresql://localhost:5432/tu_base_de_datos"
+        }
+      }
+    ]
+  },
+
+  "Text Migration Rules": {
+    "application.properties": [
+      {
+        "ID": "Prop_JDBC_URL",
+        "Description": "Cambia URL JDBC de Oracle a PostgreSQL",
+        "Search": "jdbc:oracle(.*)",
+        "Replace": "jdbc:postgresql://localhost:5432/tu_base_de_datos"
+      },
+      {
+        "ID": "Prop_Driver_Class",
+        "Description": "Cambia driver class de Oracle a PostgreSQL",
+        "Search": "oracle\\.jdbc(\\..*)?OracleDriver",
+        "Replace": "org.postgresql.Driver"
+      },
+      {
+        "ID": "Prop_Hibernate_Dialect",
+        "Description": "Cambia dialecto Hibernate de Oracle a PostgreSQL",
+        "Search": "org\\.hibernate\\.dialect\\.Oracle(.*)Dialect",
+        "Replace": "org.hibernate.dialect.PostgreSQLDialect"
+      }
+    ],
+
+    "application.yml": [
+      {
+        "ID": "Yml_JDBC_URL",
+        "Description": "Cambia URL JDBC en YAML",
+        "Search": "url:\\s*jdbc:oracle(.*)",
+        "Replace": "url: jdbc:postgresql://localhost:5432/tu_base_de_datos"
+      },
+      {
+        "ID": "Yml_Driver_Class",
+        "Description": "Cambia driver class en YAML",
+        "Search": "driver-class-name:\\s*oracle\\.jdbc(.*)",
+        "Replace": "driver-class-name: org.postgresql.Driver"
+      },
+      {
+        "ID": "Yml_Hibernate_Dialect",
+        "Description": "Cambia dialecto en YAML",
+        "Search": "database-platform:\\s*org\\.hibernate\\.dialect\\.Oracle(.*)Dialect",
+        "Replace": "database-platform: org.hibernate.dialect.PostgreSQLDialect"
+      }
+    ],
+
+    "*.java": [
+      {
+        "ID": "Java_VARCHAR2",
+        "Description": "Reemplaza tipo Oracle VARCHAR2 por VARCHAR en SQL embebido",
+        "Search": "VARCHAR2\\(",
+        "Replace": "VARCHAR("
+      },
+      {
+        "ID": "Java_NUMBER",
+        "Description": "Reemplaza NUMBER por NUMERIC en SQL embebido",
+        "Search": "NUMBER\\(",
+        "Replace": "NUMERIC("
+      },
+      {
+        "ID": "Java_SYS_GUID",
+        "Description": "Reemplaza SYS_GUID() por gen_random_uuid() (requiere extensión pgcrypto)",
+        "Search": "SYS_GUID\\(\\)",
+        "Replace": "gen_random_uuid()"
+      },
+      {
+        "ID": "Java_TO_DATE",
+        "Description": "Reemplaza TO_DATE por TO_TIMESTAMP en SQL embebido",
+        "Search": "TO_DATE\\(",
+        "Replace": "TO_TIMESTAMP("
+      },
+      {
+        "ID": "Java_NVL",
+        "Description": "Reemplaza NVL por COALESCE",
+        "Search": "NVL\\(",
+        "Replace": "COALESCE("
+      },
+      {
+        "ID": "Java_DUAL",
+        "Description": "Elimina referencias a tabla DUAL (no necesaria en PostgreSQL)",
+        "Search": "\\bFROM\\s+DUAL\\b",
+        "Replace": ""
+      }
+    ],
+
+    "*.sql": [
+      {
+        "ID": "SQL_VARCHAR2",
+        "Description": "Reemplaza VARCHAR2 por VARCHAR en scripts SQL",
+        "Search": "\\bVARCHAR2\\b",
+        "Replace": "VARCHAR"
+      },
+      {
+        "ID": "SQL_NUMBER",
+        "Description": "Reemplaza NUMBER por NUMERIC",
+        "Search": "\\bNUMBER\\b",
+        "Replace": "NUMERIC"
+      },
+      {
+        "ID": "SQL_SYS_GUID",
+        "Description": "Reemplaza SYS_GUID()",
+        "Search": "SYS_GUID\\(\\)",
+        "Replace": "gen_random_uuid()"
+      },
+      {
+        "ID": "SQL_NVL",
+        "Description": "Reemplaza NVL por COALESCE",
+        "Search": "\\bNVL\\(",
+        "Replace": "COALESCE("
+      },
+      {
+        "ID": "SQL_DUAL",
+        "Description": "Elimina FROM DUAL",
+        "Search": "\\bFROM\\s+DUAL\\b",
+        "Replace": ""
+      }
+    ]
+  },
+
+  "Scan Options": {
+    "Excluded Directories": [
+      "node_modules",
+      ".git",
+      "target",
+      "build",
+      "migration_reports",
+      "scripts",
+      "__pycache__"
+    ],
+    "Excluded Files": [
+      ".DS_Store",
+      "*.log"
+    ]
+  },
+
+  "Report Options": {
+    "Output Directory": "migration_reports",
+    "Report Filename": "oracle-to-postgres-migration-report.html"
+  }
+}

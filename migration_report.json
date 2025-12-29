@@ -1,0 +1,73 @@
+{
+  "dry_run": false,
+  "occurrences": [],
+  "changes": [],
+  "audit": [
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\pom.xml",
+      "before_hash": "158829e38d011f222961757c5d6b520562f0787401a78201015beae0f1eed961",
+      "after_hash": "158829e38d011f222961757c5d6b520562f0787401a78201015beae0f1eed961",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\HexOracleApplication.java",
+      "before_hash": "f620efa0e53446cac041d3da3ab402d81b748b68b0e99b1c95460e1910165fa0",
+      "after_hash": "f620efa0e53446cac041d3da3ab402d81b748b68b0e99b1c95460e1910165fa0",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\application\\CustomerService.java",
+      "before_hash": "386e695fd0dbcbda847f36144cff50361e01a24f9906cb59e2fe2cf0b15f8289",
+      "after_hash": "386e695fd0dbcbda847f36144cff50361e01a24f9906cb59e2fe2cf0b15f8289",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\domain\\model\\Customer.java",
+      "before_hash": "192aae28a93f6a7844a405b69e9f4cc31aca44abbc7caaf0c38bedf02d32fd69",
+      "after_hash": "192aae28a93f6a7844a405b69e9f4cc31aca44abbc7caaf0c38bedf02d32fd69",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\domain\\repository\\CustomerRepository.java",
+      "before_hash": "61c68d0b241d88a3a4fddad6065de9283644b6f26bf30b8f2a98dd589f921271",
+      "after_hash": "61c68d0b241d88a3a4fddad6065de9283644b6f26bf30b8f2a98dd589f921271",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\infrastructure\\oracle\\OracleConfig.java",
+      "before_hash": "a88db454f90c072cba9c222b82ea9f5de513a0df142cfc5819611ca3d3f5a69e",
+      "after_hash": "a88db454f90c072cba9c222b82ea9f5de513a0df142cfc5819611ca3d3f5a69e",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\infrastructure\\oracle\\OracleCustomerRepository.java",
+      "before_hash": "d93ff7f7879338e05df2a6c0e810240d1b583ea5468dba8b73b027008d4673d3",
+      "after_hash": "d93ff7f7879338e05df2a6c0e810240d1b583ea5468dba8b73b027008d4673d3",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\java\\com\\example\\customers\\infrastructure\\rest\\CustomerController.java",
+      "before_hash": "a4ddbe7c481db9afcb52cd744b0a9d26ed1a5060ad5db33dadf5ab8b30278b34",
+      "after_hash": "a4ddbe7c481db9afcb52cd744b0a9d26ed1a5060ad5db33dadf5ab8b30278b34",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\resources\\application.properties",
+      "before_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\resources\\db\\data.sql",
+      "before_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false
+    },
+    {
+      "file": "C:\\Users\\hernan\\GIT\\Github\\migrador\\test\\hex-oracle-app\\src\\main\\resources\\db\\schema.sql",
+      "before_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": false
+    }
+  ]
+}

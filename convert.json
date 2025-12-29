@@ -1,0 +1,131 @@
+{
+  "ScanOptions": {
+    "RootDirectory": "C:/Users/hernan/GIT/Github/migrador/test",
+    "ExcludedDirectories": [
+      "node_modules",
+      ".git",
+      "target",
+      "build",
+      "migration_reports",
+      "scripts",
+      "scripts_layer",
+      "script_layer"
+    ],
+    "ExcludedFiles": [
+      ".DS_Store",
+      "search-config.json"
+    ],
+    "SearchFiles": [
+      "*.java",
+      "*.sql",
+      "*.xml",
+      "*.properties",   
+      "pom.xml"
+    ]
+  },
+
+  "GlobalOptions": {
+    "DefaultBackupExtension": ".bak",
+    "DefaultDryRun": true,
+    "ReportJson": "migration_report.json",
+    "ReportHtml": "migration_report.html"
+  },
+
+  "FileSpecificRules": {
+    "pom.xml": [
+      {
+        "ID": "Pom_GroupID",
+        "Description": "Sustitución de GroupID del driver Oracle por PostgreSQL",
+        "Detect": { "Regexp": "com\\.oracle\\.database\\.jdbc" },
+        "Convert": { "Enabled": true, "Old": "com.oracle.database.jdbc", "New": "org.postgresql" }
+      },
+      {
+        "ID": "Pom_ArtifactID",
+        "Description": "Sustitución de ojdbc* por postgresql",
+        "Detect": { "Regexp": "ojdbc[0-9]+" },
+        "Convert": { "Enabled": true, "Old": "ojdbc8", "New": "postgresql" }
+      },
+      {
+        "ID": "Pom_Version",
+        "Description": "Actualizar versión del driver ojdbc a la versión objetivo",
+        "Detect": { "Regexp": "<version>\\s*[0-9]+(?:\\.[0-9]+)*\\s*</version>" },
+        "Convert": { "Enabled": true, "Old": "<version>\\s*([0-9]+(?:\\.[0-9]+)*)\\s*</version>", "New": "<version>42.2.23</version>" }
+      }
+    ],
+
+    "properties": [
+      {
+        "ID": "Prop_DriverClass",
+        "Description": "Sustitución de DriverClass",
+        "Detect": { "Regexp": "oracle\\.jdbc\\.OracleDriver" },
+        "Convert": { "Enabled": true, "Old": "oracle.jdbc.OracleDriver", "New": "org.postgresql.Driver" }
+      }
+    ],
+
+    "default": [
+      {
+        "ID": "Generic_OracleText",
+        "Description": "Sustitución de 'oracle' por 'postgres'",
+        "Detect": { "Regexp": "\\boracle\\b" },
+        "Convert": { "Enabled": true, "Old": "oracle", "New": "postgres" }
+      }
+    ]
+  },
+
+  "SQLRules": [
+    {
+      "ID": "SQL_Select",
+      "Category": "SQL-Query",
+      "Detect": { "Regexp": "(?i)select\\s+.*\\s+from\\s+" },
+      "Convert": { "Enabled": false }
+    },
+    {
+      "ID": "SQL_Merge",
+      "Category": "SQL-DML",
+      "Detect": { "Regexp": "(?i)merge\\s+.*into\\s+.*using" },
+      "Convert": { "Enabled": false }
+    }
+  ],
+
+  "PLSQLRules": [
+    {
+      "ID": "PLSQL_NVl",
+      "Description": "NVL(x,y) → COALESCE(x,y)",
+      "Detect": { "Regexp": "\\bNVL\\s*\\(([^,]+),\\s*([^\\)]+)\\)" },
+      "Convert": { "Enabled": true, "Old": "NVL", "New": "COALESCE" }
+    },
+    {
+      "ID": "PLSQL_SYSDATE",
+      "Description": "SYSDATE → CURRENT_TIMESTAMP",
+      "Detect": { "Regexp": "\\bSYSDATE\\b" },
+      "Convert": { "Enabled": true, "Old": "SYSDATE", "New": "CURRENT_TIMESTAMP" }
+    }
+  ],
+
+  "JavaTypeRules": [
+    {
+      "ID": "Java_Oracle_CLOB",
+      "Description": "Uso de oracle.sql.CLOB",
+      "Detect": { "Regexp": "\\boracle\\.sql\\.CLOB\\b" },
+      "Convert": { "Enabled": true, "Old": "oracle.sql.CLOB", "New": "java.sql.Clob" }
+    },
+    {
+      "ID": "Java_Oracle_BLOB",
+      "Description": "Uso de oracle.sql.BLOB",
+      "Detect": { "Regexp": "\\boracle\\.sql\\.BLOB\\b" },
+      "Convert": { "Enabled": true, "Old": "oracle.sql.BLOB", "New": "java.sql.Blob" }
+    },
+    {
+      "ID": "Java_OracleTypes",
+      "Description": "Uso de OracleTypes.*",
+      "Detect": { "Regexp": "\\boracle\\.jdbc\\.OracleTypes\\b" },
+      "Convert": { "Enabled": true, "Old": "oracle.jdbc.OracleTypes", "New": "java.sql.Types" }
+    },
+    {
+      "ID": "Java_OracleDataSource",
+      "Description": "Uso de OracleDataSource",
+      "Detect": { "Regexp": "\\boracle\\.jdbc\\.pool\\.OracleDataSource\\b" },
+      "Convert": { "Enabled": true, "Old": "oracle.jdbc.pool.OracleDataSource", "New": "org.postgresql.ds.PGSimpleDataSource" }
+    }
+  ]
+}
