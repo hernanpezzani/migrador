@@ -148,21 +148,39 @@ def apply_replacements_in_directory(**kwargs):
 
     iniciar_reporte_html(ruta_html, base_dir, dry_run)
     
-    search_files = config["Scan Options"]["Search_files"]
+    # Configuraciones de escaneo
+    scan_opts = config.get("Scan Options", {})
+    search_files = scan_opts.get("Search_files", [])
+    excluded_dirs = scan_opts.get("Excluded Directories", [])
+    excluded_files = scan_opts.get("Excluded Files", [])
+
     xml_rules = config.get("XML Migration Rules", {})
     regex_rules = config.get("Regex Migration Rules", {})
 
-    for path in base_dir.rglob("*"):
-        if not path.is_file() or not any(fnmatch.fnmatch(path.name, p) for p in search_files):
-            continue
-        
-        print(f"📂 Procesando: {path.name}")
-        if path.name in xml_rules:
-            procesar_xml(path, xml_rules[path.name], ruta_html, dry_run)
-        
-        for pattern, reglas in regex_rules.items():
-            if fnmatch.fnmatch(path.name, pattern):
-                procesar_regex(path, reglas, ruta_html, dry_run)
+    # CAMBIO PRINCIPAL: Usar os.walk para poder podar directorios
+    for root, dirs, files in os.walk(base_dir):
+        dirs[:] = [d for d in dirs if not any(fnmatch.fnmatch(d, pat) for pat in excluded_dirs)]
+
+        for filename in files:
+            if any(fnmatch.fnmatch(filename, pat) for pat in excluded_files):
+                continue
+
+            if not any(fnmatch.fnmatch(filename, pat) for pat in search_files):
+                continue
+            
+            path = Path(root) / filename
+            
+            print(f"📂 Procesando: {path.name}")
+            
+            if path.name in xml_rules:
+                procesar_xml(path, xml_rules[path.name], ruta_html, dry_run)
+
+            for pattern, reglas in regex_rules.items():
+                if fnmatch.fnmatch(path.name, pattern):
+                    procesar_regex(path, reglas, ruta_html, dry_run)
+
+    finalizar_reporte_html(ruta_html)
+    print(f"✨ Reporte finalizado en: {ruta_html}")
 
     finalizar_reporte_html(ruta_html)
     print(f"✨ Reporte finalizado en: {ruta_html}")
