@@ -1,3 +1,4 @@
+
 {
   "Scan Options": {
     "Excluded Directories": [
@@ -8,7 +9,7 @@
       ".DS_Store", "search-config.json", "secrets.properties", "*.log"
     ],
     "Search_files": [
-      "persistence.xml", "DataSource.properties", "*.java", "*.sql", "pom.xml"
+      "persistence.xml", "*.properties", "*.java", "*.sql", "pom.xml", "docker-compose*.y*ml", "*.sh", "ServiceTest.java", "*"
     ]
   },
   "XML Migration Rules": {
@@ -54,6 +55,80 @@
         "Newval": "org.postgresql.Driver"
       }
     ],
+    "docker-compose*.y*ml": [
+      {
+        "ID": "Docker_Port",
+        "Description": "Cambiar puerto Oracle 1521 a Postgres 5432",
+        "Oldval": "ENV_ORACLE_PORT=1521",
+        "Newval": "ENV_POSTGRES_PORT=5432"
+      },
+      {
+        "ID": "Docker_Host_Oracle",
+        "Description": "Cambiar host Oracle a local-postgres",
+        "Oldval": "ENV_ORACLE_HOST=(oracle|local-oracle)",
+        "Newval": "ENV_POSTGRES_HOST=local-postgres"
+      },
+      {
+        "ID": "Docker_Service_Name",
+        "Description": "Renombrar variable Service Name",
+        "Oldval": "ENV_ORACLE_SERVICE_NAME",
+        "Newval": "ENV_POSTGRES_SERVICE_NAME"
+      }
+    ],
+    "*.properties": [
+      {
+        "ID": "Prop_ConnectionURL_PROD_INTEGRATION",
+        "Description": "URL estática para entornos PROD/INT (basado en nombre de carpeta)",
+        "Path_Contains": ["prod", "integration"],
+        "Oldval": "connectionUrl\\s*=.*",
+        "Newval": "connectionUrl=\"jdbc:postgresql://postgresql-rw-PRODUCT-AGM-TRANSFORMER:5432/productagmtransformer?currentSchema=product_agm_transformer\""
+      },
+      {
+        "ID": "Prop_ConnectionURL_DEV_QA",
+        "Description": "URL dinámica con variables de entorno para DEV/QA",
+        "Path_Not_Contains": ["prod", "integration"],
+        "Oldval": "connectionUrl\\s*=.*",
+        "Newval": "connectionUrl=\"jdbc:postgresql://${env.ENV_POSTGRES_HOST}:${env.ENV_POSTGRES_PORT}/${env.DB_NAME}?currentSchema=${env.DB_SCHEMA}\""
+      },
+      {
+        "ID": "Prop_DriverClass",
+        "Description": "Driver Class Postgres (Aplica a todos)",
+        "Oldval": "driverClass=.*",
+        "Newval": "driverClass=org.postgresql.Driver"
+      },
+      {
+        "ID": "Prop_DriverName",
+        "Description": "Driver Name Postgres",
+        "Oldval": "driverName=.*",
+        "Newval": "driverName=postgresql"
+      },
+      {
+        "ID": "Prop_Validation",
+        "Description": "Añadir propiedades de validación después de userName",
+        "Oldval": "(userName=.*)",
+        "Newval": "$1\nvalidConnectionCheckerClassName=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker\nbackgroundValidationMillis=10000"
+      },
+      {
+        "ID": "Prop_ConnectionURL_Dev",
+        "Description": "URL de conexión genérica (ajustar si es Prod)",
+        "Oldval": "connectionUrl=.*",
+        "Newval": "connectionUrl=\"jdbc:postgresql://${env.ENV_POSTGRES_HOST}:${env.ENV_POSTGRES_PORT}/${env.DB_NAME}?currentSchema=${env.DB_SCHEMA}\""
+      },
+      {
+        "ID": "Prop_ExceptionSorter",
+        "Description": "Exception Sorter para Postgres",
+        "Oldval": "exceptionSorterClassName=.*",
+        "Newval": "exceptionSorterClassName=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"
+      }
+    ],
+    "ServiceTest.java": [
+        {
+            "ID": "Java_Test_Container",
+            "Description": "Cambiar contenedor de Oracle a Postgres en tests",
+            "Oldval": "newModuleWithEmptyOracle\\(artifact\\)",
+            "Newval": "newModuleWithEmptyPostgres(artifact, \"appPassword\").build()"
+        }
+    ],
     "*.java": [
         {
             "ID": "Java_Import_Driver",
@@ -85,6 +160,15 @@
             "Oldval": "import oracle\\.jdbc\\.internal\\.(.+);",
             "Newval": "// TODO: Revisar clase interna de Oracle: $1"
         }
+    ],
+    "*": [
+      {
+        "ID": "GLOBAL_ORACLE_CHECK",
+        "Description": "🔍 DETECTAR referencias residuales a Oracle en cualquier archivo",
+        "Path_Not_Contains": ["migration_core.py", "config.json"], 
+        "Oldval": "(?i)(oracle)",
+        "Newval": "⚠️_ORACLE_DETECTED_⚠️"
+      }
     ],
     "*.sql": [
         {
